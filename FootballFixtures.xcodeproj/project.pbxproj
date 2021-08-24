@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		041C2DC126D56F7A005585E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C2DC026D56F7A005585E2 /* AppDelegate.swift */; };
 		041C2DC326D56F7A005585E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C2DC226D56F7A005585E2 /* SceneDelegate.swift */; };
-		041C2DC526D56F7A005585E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C2DC426D56F7A005585E2 /* ViewController.swift */; };
+		041C2DC526D56F7A005585E2 /* TodaysFixturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C2DC426D56F7A005585E2 /* TodaysFixturesViewController.swift */; };
 		041C2DCA26D56F7B005585E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041C2DC926D56F7B005585E2 /* Assets.xcassets */; };
 		041C2DCD26D56F7B005585E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041C2DCB26D56F7B005585E2 /* LaunchScreen.storyboard */; };
 		041C2DD826D56F7B005585E2 /* FootballFixturesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C2DD726D56F7B005585E2 /* FootballFixturesTests.swift */; };
 		041C2DE326D56F7B005585E2 /* FootballFixturesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C2DE226D56F7B005585E2 /* FootballFixturesUITests.swift */; };
+		045AF19826D5711700AC7A51 /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AF19726D5711700AC7A51 /* HomeTabBarViewController.swift */; };
+		045AF19A26D5715300AC7A51 /* CompetitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AF19926D5715300AC7A51 /* CompetitionsViewController.swift */; };
+		045AF19D26D5740D00AC7A51 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AF19C26D5740D00AC7A51 /* UIViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +40,7 @@
 		041C2DBD26D56F7A005585E2 /* FootballFixtures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootballFixtures.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		041C2DC026D56F7A005585E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		041C2DC226D56F7A005585E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		041C2DC426D56F7A005585E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		041C2DC426D56F7A005585E2 /* TodaysFixturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysFixturesViewController.swift; sourceTree = "<group>"; };
 		041C2DC926D56F7B005585E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		041C2DCC26D56F7B005585E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		041C2DCE26D56F7B005585E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +50,9 @@
 		041C2DDE26D56F7B005585E2 /* FootballFixturesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FootballFixturesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		041C2DE226D56F7B005585E2 /* FootballFixturesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballFixturesUITests.swift; sourceTree = "<group>"; };
 		041C2DE426D56F7B005585E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		045AF19726D5711700AC7A51 /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
+		045AF19926D5715300AC7A51 /* CompetitionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsViewController.swift; sourceTree = "<group>"; };
+		045AF19C26D5740D00AC7A51 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +103,13 @@
 		041C2DBF26D56F7A005585E2 /* FootballFixtures */ = {
 			isa = PBXGroup;
 			children = (
+				045AF19B26D5716C00AC7A51 /* Controllers */,
 				041C2DC026D56F7A005585E2 /* AppDelegate.swift */,
 				041C2DC226D56F7A005585E2 /* SceneDelegate.swift */,
-				041C2DC426D56F7A005585E2 /* ViewController.swift */,
 				041C2DC926D56F7B005585E2 /* Assets.xcassets */,
 				041C2DCB26D56F7B005585E2 /* LaunchScreen.storyboard */,
 				041C2DCE26D56F7B005585E2 /* Info.plist */,
+				045AF19C26D5740D00AC7A51 /* UIViewExtensions.swift */,
 			);
 			path = FootballFixtures;
 			sourceTree = "<group>";
@@ -123,6 +130,16 @@
 				041C2DE426D56F7B005585E2 /* Info.plist */,
 			);
 			path = FootballFixturesUITests;
+			sourceTree = "<group>";
+		};
+		045AF19B26D5716C00AC7A51 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				045AF19726D5711700AC7A51 /* HomeTabBarViewController.swift */,
+				041C2DC426D56F7A005585E2 /* TodaysFixturesViewController.swift */,
+				045AF19926D5715300AC7A51 /* CompetitionsViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,7 +271,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				041C2DC526D56F7A005585E2 /* ViewController.swift in Sources */,
+				041C2DC526D56F7A005585E2 /* TodaysFixturesViewController.swift in Sources */,
+				045AF19D26D5740D00AC7A51 /* UIViewExtensions.swift in Sources */,
+				045AF19A26D5715300AC7A51 /* CompetitionsViewController.swift in Sources */,
+				045AF19826D5711700AC7A51 /* HomeTabBarViewController.swift in Sources */,
 				041C2DC126D56F7A005585E2 /* AppDelegate.swift in Sources */,
 				041C2DC326D56F7A005585E2 /* SceneDelegate.swift in Sources */,
 			);

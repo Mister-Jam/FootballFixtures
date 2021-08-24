@@ -8,22 +8,33 @@
 import UIKit
 
 class HomeTabBarViewController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupTabBars()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func setupTabBars() {
+        let todaysFixturesTabBar       = TodaysFixturesViewController()
+        let competitionsTabBar         = CompetitionsViewController()
+        
+        
+        let todaysFixturesHome         = UINavigationController(rootViewController: todaysFixturesTabBar)
+        let competitionsHome           = UINavigationController(rootViewController: competitionsTabBar)
+        
+        todaysFixturesHome.tabBarItem      = UITabBarItem(title: "", image: UIImage(named: "soccer"), tag: 0)
+        competitionsHome.tabBarItem    = UITabBarItem(title: "", image: UIImage(named: "soccer-field"), tag: 1)
+        
+        
+        tabBar.barTintColor         = .white
+        tabBar.tintColor            = .black
+        
+        todaysFixturesHome.navigationBar.prefersLargeTitles    = true
+        competitionsHome.navigationBar.prefersLargeTitles  = true
+        
+        setViewControllers([todaysFixturesHome, competitionsHome], animated: true)
     }
-    */
-
+    
+    
 }
