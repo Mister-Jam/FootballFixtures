@@ -23,9 +23,8 @@ class HomeTabBarViewController: UITabBarController {
         let todaysFixturesHome         = UINavigationController(rootViewController: todaysFixturesTabBar)
         let competitionsHome           = UINavigationController(rootViewController: competitionsTabBar)
         
-        todaysFixturesHome.tabBarItem      = UITabBarItem(title: "", image: UIImage(named: "soccer"), tag: 0)
+        todaysFixturesHome.tabBarItem  = UITabBarItem(title: "", image: UIImage(named: "soccer"), tag: 0)
         competitionsHome.tabBarItem    = UITabBarItem(title: "", image: UIImage(named: "soccer-field"), tag: 1)
-        
         
         tabBar.barTintColor         = .white
         tabBar.tintColor            = .black

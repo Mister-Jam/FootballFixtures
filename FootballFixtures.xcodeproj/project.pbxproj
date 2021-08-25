@@ -17,6 +17,13 @@
 		045AF19826D5711700AC7A51 /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AF19726D5711700AC7A51 /* HomeTabBarViewController.swift */; };
 		045AF19A26D5715300AC7A51 /* CompetitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AF19926D5715300AC7A51 /* CompetitionsViewController.swift */; };
 		045AF19D26D5740D00AC7A51 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AF19C26D5740D00AC7A51 /* UIViewExtensions.swift */; };
+		045AF1A226D580C100AC7A51 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AF1A126D580C100AC7A51 /* Constants.swift */; };
+		045AF1A526D5830F00AC7A51 /* TodaysFixturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AF1A426D5830F00AC7A51 /* TodaysFixturesTableViewCell.swift */; };
+		045AF1A726D5832600AC7A51 /* TableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AF1A626D5832600AC7A51 /* TableViewExtensions.swift */; };
+		045AF1AA26D5918700AC7A51 /* TodaysFixtureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AF1A926D5918700AC7A51 /* TodaysFixtureModel.swift */; };
+		045AF1AD26D591E800AC7A51 /* TodaysCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AF1AC26D591E800AC7A51 /* TodaysCellViewModel.swift */; };
+		045AF1AF26D599BC00AC7A51 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AF1AE26D599BC00AC7A51 /* UIFontExtension.swift */; };
+		045AF1B126D5BA1600AC7A51 /* CompetitionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AF1B026D5BA1600AC7A51 /* CompetitionsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +60,13 @@
 		045AF19726D5711700AC7A51 /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
 		045AF19926D5715300AC7A51 /* CompetitionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsViewController.swift; sourceTree = "<group>"; };
 		045AF19C26D5740D00AC7A51 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		045AF1A126D580C100AC7A51 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		045AF1A426D5830F00AC7A51 /* TodaysFixturesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysFixturesTableViewCell.swift; sourceTree = "<group>"; };
+		045AF1A626D5832600AC7A51 /* TableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtensions.swift; sourceTree = "<group>"; };
+		045AF1A926D5918700AC7A51 /* TodaysFixtureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysFixtureModel.swift; sourceTree = "<group>"; };
+		045AF1AC26D591E800AC7A51 /* TodaysCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysCellViewModel.swift; sourceTree = "<group>"; };
+		045AF1AE26D599BC00AC7A51 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		045AF1B026D5BA1600AC7A51 /* CompetitionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +117,16 @@
 		041C2DBF26D56F7A005585E2 /* FootballFixtures */ = {
 			isa = PBXGroup;
 			children = (
+				045AF1AB26D591D100AC7A51 /* ViewModel */,
+				045AF1A826D5916A00AC7A51 /* Models */,
+				045AF1A326D582F100AC7A51 /* Views */,
 				045AF19B26D5716C00AC7A51 /* Controllers */,
 				041C2DC026D56F7A005585E2 /* AppDelegate.swift */,
 				041C2DC226D56F7A005585E2 /* SceneDelegate.swift */,
+				045AF1A026D5809B00AC7A51 /* Resources */,
 				041C2DC926D56F7B005585E2 /* Assets.xcassets */,
 				041C2DCB26D56F7B005585E2 /* LaunchScreen.storyboard */,
 				041C2DCE26D56F7B005585E2 /* Info.plist */,
-				045AF19C26D5740D00AC7A51 /* UIViewExtensions.swift */,
 			);
 			path = FootballFixtures;
 			sourceTree = "<group>";
@@ -140,6 +157,42 @@
 				045AF19926D5715300AC7A51 /* CompetitionsViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		045AF1A026D5809B00AC7A51 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				045AF1A126D580C100AC7A51 /* Constants.swift */,
+				045AF1A626D5832600AC7A51 /* TableViewExtensions.swift */,
+				045AF19C26D5740D00AC7A51 /* UIViewExtensions.swift */,
+				045AF1AE26D599BC00AC7A51 /* UIFontExtension.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		045AF1A326D582F100AC7A51 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				045AF1A426D5830F00AC7A51 /* TodaysFixturesTableViewCell.swift */,
+				045AF1B026D5BA1600AC7A51 /* CompetitionsTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		045AF1A826D5916A00AC7A51 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				045AF1A926D5918700AC7A51 /* TodaysFixtureModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		045AF1AB26D591D100AC7A51 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				045AF1AC26D591E800AC7A51 /* TodaysCellViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,11 +325,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				041C2DC526D56F7A005585E2 /* TodaysFixturesViewController.swift in Sources */,
+				045AF1AD26D591E800AC7A51 /* TodaysCellViewModel.swift in Sources */,
 				045AF19D26D5740D00AC7A51 /* UIViewExtensions.swift in Sources */,
 				045AF19A26D5715300AC7A51 /* CompetitionsViewController.swift in Sources */,
 				045AF19826D5711700AC7A51 /* HomeTabBarViewController.swift in Sources */,
+				045AF1A226D580C100AC7A51 /* Constants.swift in Sources */,
+				045AF1AA26D5918700AC7A51 /* TodaysFixtureModel.swift in Sources */,
 				041C2DC126D56F7A005585E2 /* AppDelegate.swift in Sources */,
 				041C2DC326D56F7A005585E2 /* SceneDelegate.swift in Sources */,
+				045AF1A526D5830F00AC7A51 /* TodaysFixturesTableViewCell.swift in Sources */,
+				045AF1AF26D599BC00AC7A51 /* UIFontExtension.swift in Sources */,
+				045AF1B126D5BA1600AC7A51 /* CompetitionsTableViewCell.swift in Sources */,
+				045AF1A726D5832600AC7A51 /* TableViewExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

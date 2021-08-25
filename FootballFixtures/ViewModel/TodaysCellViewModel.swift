@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+protocol CellInputsIO {
+    associatedtype Model
+    var cellData: Model? { set get }
+}
+
+
