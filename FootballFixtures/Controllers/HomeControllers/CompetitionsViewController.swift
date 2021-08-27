@@ -20,8 +20,6 @@ class CompetitionsViewController: UITableViewController {
             .setTableViewInsets()
         
         self.tableView.registerTableViewCell(cell: CompetitionsTableViewCell.self)
-        
-        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
