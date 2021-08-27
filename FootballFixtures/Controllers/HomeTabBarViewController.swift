@@ -9,31 +9,34 @@ import UIKit
 
 class HomeTabBarViewController: UITabBarController {
     
+    var competitionsSelector: Presenter = PresentMenuContainer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBars()
     }
     
     
-    func setupTabBars() {
-        let todaysFixturesTabBar       = TodaysFixturesViewController()
-        let competitionsTabBar         = CompetitionsViewController()
+    private func setupTabBars() {
+        let todaysFixturesHome         = configureViewController(TodaysFixturesViewController())
+        let competitionsHome           = configureViewController(CompetitionsViewController(controller: competitionsSelector))
         
-        
-        let todaysFixturesHome         = UINavigationController(rootViewController: todaysFixturesTabBar)
-        let competitionsHome           = UINavigationController(rootViewController: competitionsTabBar)
-        
-        todaysFixturesHome.tabBarItem  = UITabBarItem(title: "", image: UIImage(named: "soccer"), tag: 0)
-        competitionsHome.tabBarItem    = UITabBarItem(title: "", image: UIImage(named: "soccer-field"), tag: 1)
+        todaysFixturesHome.tabBarItem  = UITabBarItem(title: "", image: UIImage(named: Constants.Images.ball), tag: 0)
+        competitionsHome.tabBarItem    = UITabBarItem(title: "", image: UIImage(named: Constants.Images.field), tag: 1)
         
         tabBar.barTintColor         = .white
         tabBar.tintColor            = .black
         
-        todaysFixturesHome.navigationBar.prefersLargeTitles    = true
-        competitionsHome.navigationBar.prefersLargeTitles  = true
-        
         setViewControllers([todaysFixturesHome, competitionsHome], animated: true)
     }
     
-    
+    private func configureViewController (_ controller: UIViewController) -> UINavigationController {
+        controller.navigationItem.largeTitleDisplayMode = .always
+        let navController = UINavigationController(rootViewController: controller)
+        navController.navigationBar.prefersLargeTitles = true
+        navController.navigationItem.largeTitleDisplayMode = .always
+        navController.navigationBar.shadowImage = UIImage()
+        navController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        return navController
+    }
 }
