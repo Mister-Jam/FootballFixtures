@@ -10,6 +10,7 @@ import UIKit
 class HomeTabBarViewController: UITabBarController {
     
     var competitionsSelector: Presenter = PresentMenuContainer()
+    let adapter = NetworkAdapter(networkService: .shared)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +19,10 @@ class HomeTabBarViewController: UITabBarController {
     
     
     private func setupTabBars() {
-        let todaysFixturesHome         = configureViewController(TodaysFixturesViewController())
-        let competitionsHome           = configureViewController(CompetitionsViewController(controller: competitionsSelector))
+
+        let todaysFixturesHome         = makeFixtureController()
+        let competitionsHome           = makeCompetitionController()
+        
         
         todaysFixturesHome.tabBarItem  = UITabBarItem(title: "", image: UIImage(named: Constants.Images.ball), tag: 0)
         competitionsHome.tabBarItem    = UITabBarItem(title: "", image: UIImage(named: Constants.Images.field), tag: 1)
@@ -28,6 +31,18 @@ class HomeTabBarViewController: UITabBarController {
         tabBar.tintColor            = .black
         
         setViewControllers([todaysFixturesHome, competitionsHome], animated: true)
+    }
+    
+    private func makeFixtureController() -> UINavigationController  {
+        let todaysFixtureVC = TodaysFixturesViewController()
+        todaysFixtureVC.service = adapter
+        return configureViewController(todaysFixtureVC)
+    }
+    
+    private func makeCompetitionController() -> UINavigationController  {
+        let competitionsVc = CompetitionsViewController(controller: competitionsSelector)
+        competitionsVc.service = adapter
+        return configureViewController(competitionsVc)
     }
     
     private func configureViewController (_ controller: UIViewController) -> UINavigationController {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CompetitionsTableViewCell: UITableViewCell {
+class CompetitionsTableViewCell: UITableViewCell, ConfigureWithViewModel {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -22,9 +22,12 @@ class CompetitionsTableViewCell: UITableViewCell {
     private let competitionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Kaneki Ken is the actor in charge"
         return label
     }()
+    
+    func configure(with model: CompetitionsListViewModel) {
+        competitionLabel.text = model.displayText()
+    }
     
     private func setupCellLayout() {
         contentView.addSubview(competitionLabel)
@@ -34,3 +37,5 @@ class CompetitionsTableViewCell: UITableViewCell {
     }
     
 }
+
+

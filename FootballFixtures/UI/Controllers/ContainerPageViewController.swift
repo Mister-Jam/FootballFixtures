@@ -11,9 +11,10 @@ class ContainerPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Premier League"
         view.backgroundColor = .white
         navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = Constants.smallTitle
         configureViews()
         configureTabView()
         configurePageViewSwipe()
@@ -114,6 +115,7 @@ class ContainerPageViewController: UIViewController {
         let direction: UIPageViewController.NavigationDirection = oldIndex < selectedIndex ? .forward : .reverse
         selectViewController(direction: direction, animated: animated)
     }
+    
     func selectViewController(direction: UIPageViewController.NavigationDirection, animated: Bool) {
         pageController.setViewControllers([viewControllers[selectedIndex]], direction: direction, animated: animated, completion: nil)
     }

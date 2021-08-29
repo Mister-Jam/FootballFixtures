@@ -38,7 +38,7 @@ class LeagueTeamsCollectionViewCell: UICollectionViewCell {
     private let teamLogo: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .green
+        imageView.backgroundColor = .clear
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -48,7 +48,7 @@ class LeagueTeamsCollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "900"
         label.numberOfLines = 2
-        label.backgroundColor = .gray
+        label.textAlignment = .center
         return label
     }()
     
