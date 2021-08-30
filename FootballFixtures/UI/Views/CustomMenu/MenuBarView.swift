@@ -43,7 +43,6 @@ class MenuBarView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
 extension MenuBarView {
@@ -80,14 +79,10 @@ extension MenuBarView: UICollectionViewDataSource, UICollectionViewDelegate, UIC
         
         if let cell = collectionView.dequeueReusableCell(with: MenuBarCollectionViewCell.self, indexPath: indexPath) as? MenuBarCollectionViewCell {
             configureTabCell(cell: cell, index: indexPath)
-             return cell
+            cell.delegate = self
+            return cell
         }
         return UICollectionViewCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedTabIndex = indexPath.item
-        print("selected")
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -95,3 +90,12 @@ extension MenuBarView: UICollectionViewDataSource, UICollectionViewDelegate, UIC
     }
 }
 
+extension MenuBarView: MenuDelegate {
+    func menuTapped(title: String) {
+        let index = tabItems.firstIndex { $0.title == title }
+        if let index = index {
+            selectedTabIndex = index
+            selectItem(at: index)
+        }
+    }
+}
