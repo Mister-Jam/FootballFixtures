@@ -55,6 +55,7 @@ class LeagueFixturesViewController: UIViewController, ResultHandler {
         switch result {
         case .success(let data):
             matchesModel = data.matches.map { TodaysFixturesViewModel(dataSource: $0) }
+            emptyView.retryButton.isHidden = matchesModel.isEmpty
             self.fixtureTable.reloadData()
             viewWillAppear(true)
         case .failure(let error):
