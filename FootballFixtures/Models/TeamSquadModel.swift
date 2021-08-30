@@ -8,14 +8,14 @@
 import Foundation
 
 struct TeamSquadModel: Decodable {
-    var count: Int
-    var matches: [CompetitionMatches]
+    var name: String
+    var crestUrl: String
+    var squad: [PlayerModel]
 }
 
-struct CompetitionMatches: Decodable {
-    
+struct PlayerModel: Decodable {
+    var name: String
+    var position: String?
+    var shirtNumber: Int?
 }
 
-struct CompetitionSeason: Decodable {
-    
-}
