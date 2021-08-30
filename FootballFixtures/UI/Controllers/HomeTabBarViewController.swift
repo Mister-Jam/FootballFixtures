@@ -35,12 +35,14 @@ class HomeTabBarViewController: UITabBarController {
     private func makeFixtureController() -> UINavigationController  {
         let todaysFixtureVC = TodaysFixturesViewController()
         todaysFixtureVC.service = adapter
+        todaysFixtureVC.navigationItem.title = "Today's Fixtures"
         return configureViewController(todaysFixtureVC)
     }
     
     private func makeCompetitionController() -> UINavigationController  {
         let competitionsVc = CompetitionsViewController(controller: competitionsSelector)
         competitionsVc.service = adapter
+        competitionsVc.navigationItem.title = "Competitions"
         return configureViewController(competitionsVc)
     }
     

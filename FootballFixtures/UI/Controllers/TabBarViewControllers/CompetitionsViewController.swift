@@ -16,7 +16,6 @@ class CompetitionsViewController: UITableViewController, ResultHandler {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        navigationItem.title = "Competitions"
         tableView.rowHeight = UITableView.automaticDimension
 
         self.setTableViewStyle(style: .grouped)
