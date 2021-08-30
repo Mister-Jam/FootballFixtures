@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="CompetitionsList" representedClassName="CompetitionsList" syncable="YES">
+        <attribute name="competitionName" optional="YES" attributeType="String"/>
+        <attribute name="competitionsID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="displayDate" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="LeagueStandingList" representedClassName="LeagueStandingList" syncable="YES">
+        <attribute name="goalDifference" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="matchesPlayed" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="teamID" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="teamLogoUrl" optional="YES" attributeType="String"/>
+        <attribute name="teamName" optional="YES" attributeType="String"/>
+        <attribute name="teamPosition" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalPoints" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="CompetitionsList" positionX="-54" positionY="-9" width="128" height="74"/>
+        <element name="LeagueStandingList" positionX="-36" positionY="36" width="128" height="134"/>
+    </elements>
 </model>
