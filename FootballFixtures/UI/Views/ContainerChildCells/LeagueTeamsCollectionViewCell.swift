@@ -12,13 +12,11 @@ class LeagueTeamsCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-            
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         setupSubviews()
-
     }
     
     required init?(coder: NSCoder) {
@@ -27,7 +25,7 @@ class LeagueTeamsCollectionViewCell: UICollectionViewCell {
     
     private let containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .white
         view.layer.cornerRadius = 15
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOpacity = 0.4
@@ -39,6 +37,7 @@ class LeagueTeamsCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .clear
+        imageView.image = Constants.Images.soccer
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -46,8 +45,10 @@ class LeagueTeamsCollectionViewCell: UICollectionViewCell {
     private let teamName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "900"
         label.numberOfLines = 2
+        label.font = .systemFont(ofSize: 16)
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         label.textAlignment = .center
         return label
     }()
@@ -66,7 +67,15 @@ class LeagueTeamsCollectionViewCell: UICollectionViewCell {
         teamName.centerXAnchor(anchor: containerView.centerXAnchor)
             .topAnchor(anchor: teamLogo.bottomAnchor, constant: 10)
             .widthAnchorConstant(containerView.width*0.7)
-            .heightAnchorConstant(containerView.height*0.2)
+            .heightAnchorConstant(containerView.height*0.25)
     }
     
+}
+
+extension LeagueTeamsCollectionViewCell: ConfigureWithViewModel {
+    func configure(with model: LeagueTeamsViewModel) {
+        teamName.text = model.teamName
+        guard let url = URL(string: model.teamLogoUrl) else { return }
+        teamLogo.sd_setImage(with: url, placeholderImage: Constants.Images.soccer, options: [], context: nil)
+    }
 }
