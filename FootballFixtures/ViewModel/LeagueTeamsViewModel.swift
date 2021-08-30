@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+struct LeagueTeamsViewModel {
+    static var leagueTeamsData = [TeamModel]()
+    var teamName: String
+    var teamLogoUrl: String
+    var teamID: Int
+    
+    init(dataSource: TeamModel) {
+        teamName = dataSource.name
+        teamID = dataSource.id
+        teamLogoUrl = dataSource.crestUrl
+    }
+}
