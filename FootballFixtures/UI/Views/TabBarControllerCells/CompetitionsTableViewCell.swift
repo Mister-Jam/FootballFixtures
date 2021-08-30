@@ -35,7 +35,6 @@ class CompetitionsTableViewCell: UITableViewCell, ConfigureWithViewModel {
             .centerYAnchor(anchor: contentView.centerYAnchor)
             .heightAnchorConstant(52)
     }
-    
 }
 
 
