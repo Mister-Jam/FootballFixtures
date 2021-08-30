@@ -18,7 +18,6 @@ class TodaysFixturesViewController: UITableViewController, ResultHandler {
         super.viewDidLoad()
         spinner.start(container: Constants.topMostController())
         view.backgroundColor = .white
-        navigationItem.title = "Today's Fixtures"
         tableView.rowHeight = UITableView.automaticDimension
         navigationController?.navigationBar.largeTitleTextAttributes = Constants.titleText
         loadFixtures()
