@@ -33,7 +33,7 @@ class LeagueTableViewCell: UITableViewCell {
         imageView.layer.cornerRadius        = 12
         imageView.layer.masksToBounds       = true
         imageView.layer.borderWidth         = 0.1
-        imageView.image                     = UIImage(named: "currently-unavailable")
+        imageView.image                     = Constants.Images.soccer
         imageView.contentMode               = .scaleAspectFit
         return imageView
     }()
@@ -92,14 +92,14 @@ class LeagueTableViewCell: UITableViewCell {
 extension LeagueTableViewCell: ConfigureWithViewModel {
     
     func configure(with model: LeagueStandingsViewModel) {
-        indexLabel.text = String(model.teamPosition)
-        teamNameLabel.text = model.teamName
+        indexLabel.text         = String(model.teamPosition)
+        teamNameLabel.text      = model.teamName
         numOfFixturesLabel.text = String(model.matchesPlayed)
-        numOfGoalsLabel.text = String(model.goalDifference)
-        teamPointsLabel.text = String(model.totalPoints)
-        guard let url = URL(string: model.teamLogoUrl) else { return }
-        let svgImageSize = CGSize(width: 100, height: 100)
-        teamLogo.sd_setImage(with: url, placeholderImage: UIImage(named: "soccer"), options: [], context: [.imageThumbnailPixelSize : svgImageSize])
+        numOfGoalsLabel.text    = String(model.goalDifference)
+        teamPointsLabel.text    = String(model.totalPoints)
+        guard let url           = URL(string: model.teamLogoUrl) else { return }
+        let svgImageSize        = CGSize(width: 100, height: 100)
+        teamLogo.sd_setImage(with: url, placeholderImage: Constants.Images.soccer, options: [], context: [.imageThumbnailPixelSize : svgImageSize])
         
     }
     
