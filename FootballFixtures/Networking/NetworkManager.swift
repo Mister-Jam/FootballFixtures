@@ -18,6 +18,7 @@ class NetworkManager: NetworkLoader {
         
         guard let url = URL(string: Constants.URLConstants.baseURL+path) else { return }
         var request = URLRequest(url: url)
+        
         request.httpMethod = "GET"
         request.setValue(Constants.URLConstants.apiToken, forHTTPHeaderField: Constants.URLConstants.httpHeader)
         URLSession.shared.decodeData(from: request, type: T.self) { result in
