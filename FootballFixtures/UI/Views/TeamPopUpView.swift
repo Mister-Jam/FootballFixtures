@@ -34,22 +34,18 @@ class TeamPopUpView: UIView {
         addSubview(playersTableView)
         playersTableView.delegate = self
         playersTableView.dataSource = self
+        self.playersTableView.tableHeaderView = self.createTableHeader()
         playersTableView.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
         playersTableView.frame = CGRect(x: 0, y: 0, width: self.width, height: self.height)
         playersTableView.registerTableViewCell(cell: PlayersListTableViewCell.self)
     }
     
-    func isLoaded() {
-        self.playersTableView.tableHeaderView = self.createTableHeader()
-    }
-    
-    
     func loadImage(imageView: UIImageView) {
         if let url = URL(string: headerImageUrl) {
             let svgImageSize = CGSize(width: 150, height: 150)
-            imageView.sd_setImage(with: url, placeholderImage: UIImage(named: "soccer"), options: [], context: [.imageThumbnailPixelSize : svgImageSize])
+            imageView.sd_setImage(with: url, placeholderImage: Constants.Images.soccer, options: [], context: [.imageThumbnailPixelSize : svgImageSize])
         } else {
-            imageView.image = UIImage(named: "soccer")
+            imageView.image = Constants.Images.soccer
         }
     }
     
@@ -79,7 +75,7 @@ extension TeamPopUpView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let data = tableData.sorted {
+        let data    = tableData.sorted {
             guard let playerA = $0.shirtNumber,
                   let playerB = $1.shirtNumber else { return false }
             return playerA < playerB }
