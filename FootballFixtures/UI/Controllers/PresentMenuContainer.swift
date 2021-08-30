@@ -8,7 +8,7 @@
 import UIKit
 
 protocol Presenter: AnyObject {
-    func presentController(title: String, id: String, item: UINavigationItem, controller: UIViewController)
+    func presentController(title: String, id: String, item: UINavigationItem, controller: UIViewController, url: String?)
 }
 
 class PresentMenuContainer: Presenter {
@@ -17,7 +17,7 @@ class PresentMenuContainer: Presenter {
     let adapter = NetworkAdapter(networkService: .shared)
     let playersPresenter: Presenter = PresentPlayersVC()
     
-    func presentController(title: String, id: String, item: UINavigationItem, controller: UIViewController) {
+    func presentController(title: String, id: String, item: UINavigationItem, controller: UIViewController, url: String?) {
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navTitle = title
@@ -46,7 +46,6 @@ class PresentMenuContainer: Presenter {
         let leagueTeamsViewController = LeagueTeamsViewController(collectionViewLayout: collectionLayout)
         leagueTeamsViewController.presenter = playersPresenter
         leagueTeamsViewController.tabBarItem = UITabBarItem(title: Constants.Titles.teams,image: .none, tag: 2)
-        leagueTeamsViewController.service = adapter
         
         let tabController = ContainerPageViewController()
         tabController.title = navTitle
@@ -59,17 +58,22 @@ class PresentMenuContainer: Presenter {
 
 
 class PresentPlayersVC: Presenter {
+    
     var teamID = ""
     var adapter = NetworkManager.shared
+    var logoUrl = ""
+    var teamName = ""
     
-    func presentController(title: String, id: String, item: UINavigationItem, controller: UIViewController) {
+    func presentController(title: String, id: String, item: UINavigationItem, controller: UIViewController, url: String?) {
         teamID = id
         item.title = title
+        teamName = title
+        logoUrl = url ?? ""
         controller.show(configureController(), sender: self)
     }
     
     func configureController() -> UIViewController {
-        let playersVC =  PlayersListViewController(id: teamID)
+        let playersVC =  PlayersListViewController(id: teamID, urlString: logoUrl, title: teamName)
         let vc = UINavigationController(rootViewController: playersVC)
         vc.isModalInPresentation = true
         playersVC.service = adapter

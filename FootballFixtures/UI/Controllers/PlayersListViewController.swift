@@ -12,10 +12,14 @@ class PlayersListViewController: UIViewController, ResultHandler {
     private var playersListModelData = [TeamPlayersListViewModel]()
     var service: NetworkLoader?
     var teamID: String
+    var logoUrl: String
+    var navigationTitle: String
     private var swippedUp = false
     
-    init(id: String) {
+    init(id: String, urlString: String, title: String) {
         self.teamID = id
+        self.logoUrl = urlString
+        self.navigationTitle = title
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -29,7 +33,7 @@ class PlayersListViewController: UIViewController, ResultHandler {
         view.backgroundColor = .clear
         navigationItem.leftBarButtonItem =  menuListBarButtonItem()
         navigationController?.navigationBar.tintColor = .black
-        let urlPath = Constants.URLPaths.teams+"/66"
+        let urlPath = Constants.URLPaths.teams+teamID
         service?.loadRequest(path: urlPath, model: TeamSquadModel.self, completion: handleUrlRequest)
     }
     
@@ -37,20 +41,17 @@ class PlayersListViewController: UIViewController, ResultHandler {
         switch result {
         case .success(let data):
             playersListModelData = data.squad.map { TeamPlayersListViewModel(dataSource: $0) }
-            
             popupView.tableData = playersListModelData
-            popupView.headerImageUrl = data.crestUrl
-            DispatchQueue.main.async {
-                self.navigationItem.title = data.name
-                self.popupView.isLoaded()
-                self.popupView.playersTableView.reloadData()
-            }
+            DispatchQueue.main.async { [weak self] in
+                self?.popupView.playersTableView.reloadData() }
         case .failure(let error):
             print(error)
         }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationItem.title = navigationTitle
         configureViewAppear()
     }
     
@@ -61,6 +62,7 @@ class PlayersListViewController: UIViewController, ResultHandler {
     private func configureViewAppear() {
         navigationController?.navigationBar.isHidden = true
         view.addSubview(popupView)
+        popupView.headerImageUrl = logoUrl
         popupView.frame = CGRect(x: 0, y: view.height/2, width: view.width, height: view.height)
     }
     
@@ -104,9 +106,9 @@ class PlayersListViewController: UIViewController, ResultHandler {
     }
     
     @objc func dismissView() {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.swippedUp = false
-            self.navigationController?.dismiss(animated: true, completion: nil)
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            self?.swippedUp = false
+            self?.navigationController?.dismiss(animated: true, completion: nil)
         })
     }
 }

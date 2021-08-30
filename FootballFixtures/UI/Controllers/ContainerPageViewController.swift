@@ -26,6 +26,11 @@ class ContainerPageViewController: UIViewController {
         setTabBarHidden(true)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+    }
+    
     var viewControllers: [UIViewController] = [] {
         didSet { updateControllersAndTabsIfPossible() }
     }
