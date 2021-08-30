@@ -23,7 +23,6 @@ class HomeTabBarViewController: UITabBarController {
         let todaysFixturesHome         = makeFixtureController()
         let competitionsHome           = makeCompetitionController()
         
-        
         todaysFixturesHome.tabBarItem  = UITabBarItem(title: "", image: UIImage(named: Constants.Images.ball), tag: 0)
         competitionsHome.tabBarItem    = UITabBarItem(title: "", image: UIImage(named: Constants.Images.field), tag: 1)
         
@@ -46,12 +45,9 @@ class HomeTabBarViewController: UITabBarController {
     }
     
     private func configureViewController (_ controller: UIViewController) -> UINavigationController {
-        controller.navigationItem.largeTitleDisplayMode = .always
         let navController = UINavigationController(rootViewController: controller)
         navController.navigationBar.prefersLargeTitles = true
         navController.navigationItem.largeTitleDisplayMode = .always
-        navController.navigationBar.shadowImage = UIImage()
-        navController.navigationBar.setBackgroundImage(UIImage(), for: .default)
         return navController
     }
 }

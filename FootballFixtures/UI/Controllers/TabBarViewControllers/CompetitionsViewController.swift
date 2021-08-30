@@ -53,7 +53,7 @@ class CompetitionsViewController: UITableViewController, ResultHandler {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         items.count
+        items.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,7 +74,6 @@ class CompetitionsViewController: UITableViewController, ResultHandler {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let cellData = items[indexPath.row]
-        presenter.presentController(title: cellData.displayText(), id: "\(cellData.competitionId)", item: self.navigationItem, controller: self)
+        presenter.presentController(title: cellData.displayText(), id: "\(cellData.competitionId)", item: self.navigationItem, controller: self, url: nil)
     }
-    
 }
