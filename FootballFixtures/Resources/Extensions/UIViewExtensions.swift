@@ -100,3 +100,21 @@ extension UIView {
         return self
     }
 }
+
+extension UIViewController {
+    
+    func setTabBarHidden(_ hidden: Bool) {
+        guard let frame = self.tabBarController?.tabBar.frame else { return }
+        if hidden {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.tabBarController?.tabBar.frame = CGRect(x: frame.origin.x, y: frame.origin.y + frame.height, width: frame.width, height: frame.height)
+            })
+        } else {
+            UIView.animate(withDuration: 0, animations: {
+                self.tabBarController?.tabBar.frame = UITabBarController().tabBar.frame
+            })
+        }
+        
+    }
+
+}

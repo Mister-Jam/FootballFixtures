@@ -9,7 +9,7 @@ import UIKit
 
 extension UIFont {
     
-    static let headerFont = UIFont(name: "AppleSDGothicNeo-Bold", size: 21)
+    static let headerFont = UIFont(name: "AppleSDGothicNeo-Bold", size: 19)
     static let smallHeaderFont = UIFont(name: "AppleSDGothicNeo-Bold", size: 15)
-    static let smallFont = UIFont(name: "AppleSDGothicNeo-Medium", size: 13)
+    static let smallFont = UIFont(name: "AppleSDGothicNeo-Medium", size: 14)
 }
