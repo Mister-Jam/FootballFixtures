@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol MenuDelegate: AnyObject {
+    func menuTapped(title: String)
+}
+
 class MenuBarCollectionViewCell: UICollectionViewCell {
+    
+    weak var delegate: MenuDelegate?
    
     private let lineView: UIView = {
         let view = UIView()
@@ -60,7 +66,8 @@ class MenuBarCollectionViewCell: UICollectionViewCell {
     }
     
     @objc func didTapMenuButton() {
-        
+        guard let title = title else { return }
+        delegate?.menuTapped(title: String(describing: title))
     }
     
     private func updatesViewOnClick() {
