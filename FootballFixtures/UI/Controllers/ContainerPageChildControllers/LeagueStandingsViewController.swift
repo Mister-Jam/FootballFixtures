@@ -42,26 +42,28 @@ class LeagueStandingsViewController: UITableViewController, ResultHandler {
         service?.loadRequest(path: urlPath, model: LeagueTableStandingsModel.self, completion: handleUrlRequest)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     internal func handleUrlRequest(result: Result<LeagueTableStandingsModel, Error>) {
         switch result {
         case .success(let data):
             let teamsTable = transformData(data: data.standings)
             teamStandingsArray = teamsTable.map { LeagueStandingsViewModel(dataSource: $0) }
+
             spinner.stop()
             self.tableView.reloadData()
         case .failure(let error):
             spinner.stop()
-            Constants.failureAlert(title: "This is Awkward", viewController: self, text: error.localizedDescription)
+            Constants.failureAlert(title: "This is Awkward", viewController: self,
+                                   text: error.localizedDescription, completion: {[weak self] _ in
+                                    guard let self = self else { return }
+                                    self.navigationController?.popViewController(animated: true)
+                                   })
         }
     }
     
     internal func transformData(data: [TableStandings]) -> [TeamTable] {
         var result = [TeamTable]()
         _ = data.map { result.append(contentsOf: $0.table) }
+        LeagueTeamsViewModel.leagueTeamsData = result.map { $0.team }
         return result
     }
     
