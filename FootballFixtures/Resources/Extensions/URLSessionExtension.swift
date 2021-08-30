@@ -32,10 +32,4 @@ extension URLSession {
                 }
             }.resume()
         }
-        
-        enum DecodingErrors: String, Error {
-            case failedToFetchData = "Unable to fetch data from the web....Check your network and try again"
-            case failedToDecode = "Lack of permission to view resource so error message was sent"
-        }
-        
     }
