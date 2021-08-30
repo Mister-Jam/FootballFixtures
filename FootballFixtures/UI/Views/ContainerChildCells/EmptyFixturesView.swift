@@ -17,7 +17,7 @@ class EmptyFixturesView: UIView {
     private let ballImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "soccer")
+        imageView.image = Constants.Images.soccer
         imageView.backgroundColor = .lightGray
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -28,7 +28,7 @@ class EmptyFixturesView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "No Fixtures"
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 14, weight: .semibold)
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
         return label
     }()
     
